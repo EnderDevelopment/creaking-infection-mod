@@ -1,0 +1,48 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
+}
+
+group 'com.haydenhurlbert'
+version '1.0.0'
+
+repositories {
+    mavenCentral()
+    maven {
+        url 'https://maven.minecraftforge.net'
+    }
+}
+
+ext.archivesName = "creakinginfectionmod-1.0.0.jar"
+
+sourceCompatibility = JavaVersion.VERSION_17
+
+dependencies {
+    implementation fg.deobf('net.minecraftforge:forge:1.20.1-47.1.0')
+    implementation 'net.minecraft:client:1.20.1+build.1'
+    implementation 'net.minecraft:server:1.20.1+build.1'
+    implementation 'net.minecraftforge:fmlloader:1.20.1-47.1.0'
+    implementation 'net.minecraftforge:minecraftforgelib:1.20.1-47.1.0'
+}
+
+processResources {
+    inputs.property 'version', project.version
+    inputs.property 'mcversion', '1.20.1'
+}
+
+jar {
+    archiveFileName = "creakinginfectionmod-1.0.0.jar"
+}
+
+shadowJar {
+    archiveFileName = "creakinginfectionmod-1.0.0-shadow.jar"
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+}

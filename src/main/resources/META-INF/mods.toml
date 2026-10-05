@@ -1,0 +1,27 @@
+[mods]
+modLoader = "javafml"
+loaderVersion = "[47,)"
+license = "All rights reserved"
+
+[[mods]]
+modId = "creakinginfectionmod"
+version = "${file.jarVersion}"
+displayName = "Creaking Infection Mod"
+logoFile = "logo.png"
+credits = "Hayden Hurlbert"
+authors = "Hayden Hurlbert"
+description = '''A mod where the player is a parasite creaking worm and has to infect the planet and mobs to get powers.'''
+
+[[dependencies.creakinginfectionmod]]
+modId = "forge"
+mandatory = true
+versionRange = "[47,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.creakinginfectionmod]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.20.1,1.21)"
+ordering = "NONE"
+side = "BOTH"
